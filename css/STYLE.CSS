@@ -1,0 +1,9 @@
+TD 		{ font-family:"Verdana"; FONT-SIZE: 9pt; COLOR: #ffffff;}
+P 			{ font-family:"Verdana"; FONT-SIZE: 9pt; COLOR: #ffffff;}
+SELECT 	{ font-family:"Verdana"; FONT-SIZE: 9pt; BACKGROUND-COLOR: #ffd9ec}
+A:link 	{ font-family:"Verdana"; FONT-SIZE: 9pt; COLOR: #00ffff; TEXT-DECORATION: none}
+A:visited{ font-family:"Verdana"; FONT-SIZE: 9pt; COLOR: #00ffff; TEXT-DECORATION: none}
+A:hover 	{ font-family:"Verdana"; FONT-SIZE: 9pt; COLOR: #ffff00; TEXT-DECORATION: underline}
+.jnfont4 { font-family:"Verdana"; FONT-SIZE: 9pt; FILTER: dropshadow(color=#000000,offx=1,offy=1); COLOR: #ffffff;}
+.A1 		{ font-family:"Verdana"; FONT-SIZE: 9pt; FILTER: dropshadow(color=#000000,offx=1,offy=1); COLOR: #EFB865;TEXT-DECORATION: none}
+.input	( BORDER-RIGHT: #5a9ef1 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #5a9ef1 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 1px; BORDER-LEFT: #5a9ef1 1px solid; COLOR: #c5e6fe; PADDING-TOP: 1px; BORDER-BOTTOM: #5a9ef1 1px solid; BACKGROUND-COLOR: #055192)
