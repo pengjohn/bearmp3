@@ -3,12 +3,15 @@
 	const Info_Release			="　　2005年新的开始。"		'首页通告
    const Info_Homepage			= "http://10.100.51.45/music"
    const Info_Email				= "mailto:pengjohn@amoi.com.cn"
-   const Info_Version			= "Ver3.1"
+   const Info_Version			= "Ver3.2"
    const Switch_Comment		= 0	'歌曲、专辑评论开关
    const Switch_DianGe		= 0	'点歌台开关
    const Switch_TopSong		= 1	'歌曲排行
    const Switch_TopAlbum	= 1	'专辑排行
-   const Switch_GuestBook	= 1	'专辑排行
+   const Switch_GuestBook	= 0	'专辑留言本
+   const Switch_Tools     = 0 '常用工具下载
+   const Switch_Link      = 0 '友情链接
+   const Switch_Count     = 1 '访问统计
    
 	const Mode_Play			= 1	'播放模式， 1-无歌词; 2-带歌词weblrc
 	const Mode_Download		= 0	'下载模式， 0-直接下载; 1-转向下载

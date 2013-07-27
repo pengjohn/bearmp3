@@ -8,8 +8,12 @@ dim companyid
 dim password
 dim errmsg
 dim founderr
+dim loginmode
+
 username=Request.form("username")
 password=Request.form("password")
+loginmode=request("loginmode")
+
 
 if username="" or password="" then%>
 	<script language=vbscript>       
@@ -17,7 +21,6 @@ if username="" or password="" then%>
 		location.href = "javascript:history.back()"       
 	</script> 
 <%end if%>
-
 
 <!--#include file="conn_music_open.asp"-->
 <!--#include file="count_conn.asp"-->
@@ -49,7 +52,12 @@ if not rs.EOF then
 	set rs=nothing
 	conn.close
 	set conn=nothing		
-	response.redirect "default.asp"
+	
+if loginmode = 1 then
+		response.redirect "default_qvga.asp"
+	else
+	  response.redirect "default.asp"
+	end if
 else
 	rs.close
 	set rs=nothing

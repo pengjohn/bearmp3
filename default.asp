@@ -196,7 +196,7 @@ function playonline(url, width, height)
 		<td background="Images/top_blank.gif" height=33 width=76 style="padding-top: 6px"  			 ><A href="default.asp?classid=3" ><font class=A1>日韩歌手</font></A></td>
 		<td background="Images/top_blank.gif" height=33 width=76 style="padding-top: 6px" 			 ><A href="default.asp?classid=4" ><font class=A1>至纯音乐</font></A></td>
 		<td background="Images/top_blank.gif" height=33 width=76 style="padding-top: 6px"  colSpan=3><A href="default.asp?classid=0" ><font class=A1>乱七八糟</font></A></td>
-		<td background="Images/top_blank.gif" height=33 width=76 style="padding-top: 6px"  colSpan=4><A href="default.asp?classid=87"><font class=A1>骚熊推荐</font></A></td>
+		<td background="Images/top_blank.gif" height=33 width=76 style="padding-top: 6px"  colSpan=4><A href="default.asp?classid=87"><font class=A1>音乐推荐</font></A></td>
 		<td><img height=33 src="Images/01_31.gif" width=16></td>
 	</tr>
 	<tr>
@@ -264,6 +264,7 @@ function playonline(url, width, height)
 								<a href="admin_user_login_list.asp" target="_blank"><li>访问信息</li></a>
 								<a href="admin_list_user.asp" target="_blank"><li>用户登陆信息</li></a>
 								<a href="ip_admin.asp" target="_blank"><li>IP权限管理</li></a>
+								<a href="gstbook_delall.asp"><li>清空所有留言</li></a>
 								<a href="admin_manage.asp"><li>站务管理</li></a>
 							</tr>
 						</table>
@@ -347,10 +348,10 @@ function playonline(url, width, height)
 						</table>
 					</td>
 				</tr>
-
 				<tr>
 					<td width="100%" align=center><img src="Images/barbar.gif" border=0></td>
 				</tr>
+<%if Switch_Tools = 1 then%>
 				<tr>
 					<td align=center>
 						<table cellSpacing=0 cellPadding=0 width=160 border=0>
@@ -385,6 +386,8 @@ function playonline(url, width, height)
 						</table>
 					</td>
 				</tr>
+<%end if%>				
+				
 			</table>
 		</td>
 		
@@ -420,8 +423,12 @@ function playonline(url, width, height)
 		%>
 		
 		<%'统计数据---------------------------------%>
-		<%TotalCount_Show%>
+		<%if Switch_Count = 1 then
+		   TotalCount_Show
+		end if
+		%>
 
+		<% if Switch_Link = 1 then%>
 			<tr>
 				<td align=middle width="100%"><img src="Images/rightbar4.gif" border=0></td>
 			</tr>
@@ -451,6 +458,7 @@ function playonline(url, width, height)
 			<tr>
 				<td align=middle width="100%"><img src="Images/rightbar1-2.gif" border=0></td>
 			</tr>
+			<%end if%>
 		</table>
 	</td>
 </tr>
@@ -521,7 +529,7 @@ function playonline(url, width, height)
 			titlename = "下载排行"
 			listsongs
 		case 87
-			titlename = "骚熊推荐"
+			titlename = "音乐推荐"
 			goodcomment_list
 		case 88
 			sql="select * from song,album where song.albumid=album.albumid and songfile='' order by song.albumid desc"
@@ -704,7 +712,7 @@ function playonline(url, width, height)
 			else 
 			%>
 				<tr>
-					<td>当前位置：<a href="default.asp?classid=<%=(singerid\10^Mul_Singer)%>"><%=classname%></a> → 歌手［<%=singername%>］专辑列表</td>
+					<td>当前位置：<a href="default.asp?classid=<%=(singerid\10^Mul_Singer)%>"><%=classname%></a> → 歌手［<%=singername%>］专辑列表，共［<font color="red"><b><%=rs.recordcount%></b></font>］张</td>
 				</tr>
 				<tr>
 					<td>
@@ -825,7 +833,9 @@ function playonline(url, width, height)
 							</tr>
 							<%
 							rs.open sql,conn,1,1
-							do while not rs.eof
+							%>
+							共［<font color="red"><b><%=rs.recordcount%></b></font>］首
+							<%do while not rs.eof
 							%>
 							<tr align="center">
 								<td><%=rs("songid")%></td>
